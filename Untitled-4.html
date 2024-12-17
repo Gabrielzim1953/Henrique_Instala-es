@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henrik_Instalações</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        /* Navegação */
+        nav {
+            background-color: #444;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        /* Slider de Produtos */
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+
+        .slider-container {
+            display: flex;
+            width: 300%;
+            animation: slide 15s infinite;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            33% {
+                transform: translateX(-100%);
+            }
+            66% {
+                transform: translateX(-200%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Seção de Produtos */
+        .section-title {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        .product-card, .service-card {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            width: 48%;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover, .service-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-img, .service-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info, .service-info {
+            padding: 15px;
+        }
+
+        .product-name, .service-name {
+            font-size: 1.4em;
+            color: #333;
+        }
+
+        .product-description, .service-description {
+            color: #777;
+            font-size: 0.9em;
+            margin: 10px 0;
+        }
+
+        .product-price {
+            font-size: 1.4em;
+            color: #e67e22;
+            font-weight: bold;
+        }
+
+        .buy-button, .service-button {
+            background-color: #e67e22;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-button:hover, .service-button:hover {
+            background-color: #d35400;
+        }
+
+        .products-container, .services-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        /* Testemunhos */
+        .testimonials {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .testimonial-card {
+            width: 30%;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+        }
+
+        /* Contato */
+        .contact-form {
+            width: 80%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background-color: #e67e22;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .contact-form button:hover {
+            background-color: #d35400;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Media Queries para mobile */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav a {
+                font-size: 16px;
+                padding: 12px;
+            }
+
+            .slider {
+                height: 200px;
+            }
+
+            .slider-container img {
+                height: 100%;
+            }
+
+            .product-card, .service-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .products-container, .services-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .testimonial-card {
+                width: 90%;
+                margin: 10px auto;
+            }
+
+            .contact-form {
+                width: 90%;
+            }
+
+            footer {
+                font-size: 14px;
+                padding: 10px 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Henrik_Instalações</h1>
+        <p>Peças e serviços para seu carro com qualidade e confiança.</p>
+    </header>
+
+    <!-- Navegação -->
+    <nav>
+        <a href="https://www.instagram.com/henrik_instalacoes/">Serviços</a>
+        <a href="https://www.instagram.com/henrik_instalacoes/">Instagram</a>
+        <a href="https://api.whatsapp.com/message/7XYRL5NWHCJVP1?autoload=1&app_absent=0">Contato</a>
+    </nav>
+
+    <!-- Seção de Produtos -->
+    <section id="produtos">
+        <h2 class="section-title">Produtos em Destaque</h2>
+        <div class="products-container">
+            <div class="product-card">
+                <img src="produto1.jpg" alt="Subwoofer 12 polegadas" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-name">Subwoofer 12 polegadas</h3>
+                    <p class="product-description">Subwoofer potente para graves profundos, ideal para carros que buscam um som de qualidade.</p>
+                    <p class="product-price">R$ 1.200,00</p>
+                  
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="produto2.jpg" alt="Amplificador 1000W" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-name">Amplificador 1000W</h3>
+                    <p class="product-description">Amplificador de alta potência, ideal para garantir um som limpo e sem distorções.</p>
+                    <p class="product-price">R$ 800,00</p>
+                    
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="produto3.jpg" alt="Kit de Alto-falantes" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-name">Kit de Alto-falantes</h3>
+                    <p class="product-description">Kit completo de alto-falantes com excelente performance e durabilidade.</p>
+                    <p class="product-price">R$ 450,00</p>
+                  
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Serviços -->
+    <section id="servicos">
+        <h2 class="section-title">Serviços de Manutenção</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <img src="Instalação do Porta módulo..jpg" alt="Instalação de Som Automotivo" class="service-img">
+                <div class="service-info">
+                    <h3 class="service-name">Instalação de Som Automotivo</h3>
+                    <p class="service-description">Oferecemos serviços de instalação de som de alta qualidade, desde sistemas simples até configurações avançadas.</p>
+                  
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="servico2.jpg" alt="Manutenção de Vidros" class="service-img">
+                <div class="service-info">
+                    <h3 class="service-name">Manutenção de Vidros</h3>
+                    <p class="service-description">Realizamos manutenção e troca de vidros de carros, com rapidez e qualidade.</p>
+                   
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="Mais um projeto finalizado com sucesso!!!! Pintura  Madeiramento  Instalação.jpg" alt="Ajuste de Som Automotivo" class="service-img">
+                <div class="service-info">
+                    <h3 class="service-name">Ajuste de Som Automotivo</h3>
+                    <p class="service-description">Ajustamos o som do seu carro para que você aproveite a melhor qualidade de áudio possível.</p>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+       
+
+
+    <!-- Seção de Testemunhos -->
+    <section id="testemunhos" class="testimonials">
+        <h2>O que nossos clientes dizem</h2>
+        <div class="testimonial-card">
+            <p>"Excelente serviço de instalação! O som do meu carro nunca esteve melhor!"</p>
+            <p>- João Silva</p>
+        </div>
+        <div class="testimonial-card">
+            <p>"Fiz a troca do vidro e o serviço foi rápido e eficiente. Recomendo!"</p>
+            <p>- Maria Oliveira</p>
+        </div>
+        <div class="testimonial-card">
+            <p>"Ajustaram meu som automotivo e ficou perfeito, com a melhor qualidade de áudio!"</p>
+            <p>- Carlos Santos</p>
+        </div>
+    </section>
+    
+    
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Loja de Som Automotivo & Manutenção de Vidros. Todos os direitos reservados.</p>
+        <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Serviço</a></p>
+    </footer>
+
+</body>
+</html>
